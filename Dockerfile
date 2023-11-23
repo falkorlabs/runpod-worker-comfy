@@ -39,8 +39,8 @@ RUN wget -O models/vae/sdxl-vae-fp16-fix.safetensors https://huggingface.co/made
 RUN wget -O models/loras/xl_more_art-full_v1.safetensors https://civitai.com/api/download/models/152309
 
 # Example for adding specific models into image
-# ADD models/checkpoints/sd_xl_base_1.0.safetensors models/checkpoints/
-# ADD models/vae/sdxl_vae.safetensors models/vae/
+RUN wget -O models/checkpoints/dynavision_xl_all_in_one.safetensors https://civitai.com/api/download/models/169718
+RUN wget -O models/checkpoints/real_vis_xl_2.0.safetensors https://civitai.com/api/download/models/169921
 
 # Go back to the root
 WORKDIR /
