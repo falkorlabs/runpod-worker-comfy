@@ -33,14 +33,18 @@ RUN pip3 install --no-cache-dir torch torchvision torchaudio --index-url https:/
 RUN pip3 install runpod requests
 
 # Download checkpoints/vae/LoRA to include in image
-RUN wget -O models/checkpoints/sd_xl_base_1.0.safetensors https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors
+RUN wget -O models/checkpoints/dynavision_xl_all_in_one.safetensors https://civitai.com/api/download/models/169718
+RUN wget -O models/checkpoints/real_vis_xl_2.0.safetensors https://civitai.com/api/download/models/169921
 RUN wget -O models/vae/sdxl_vae.safetensors https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors
 RUN wget -O models/vae/sdxl-vae-fp16-fix.safetensors https://huggingface.co/madebyollin/sdxl-vae-fp16-fix/resolve/main/sdxl_vae.safetensors
 RUN wget -O models/loras/xl_more_art-full_v1.safetensors https://civitai.com/api/download/models/152309
 
-# Example for adding specific models into image
-RUN wget -O models/checkpoints/dynavision_xl_all_in_one.safetensors https://civitai.com/api/download/models/169718
-RUN wget -O models/checkpoints/real_vis_xl_2.0.safetensors https://civitai.com/api/download/models/169921
+# # Example for adding specific models into image
+ADD models/checkpoints/dynavision_xl_all_in_one.safetensors models/checkpoints/
+ADD models/checkpoints/real_vis_xl_2.0.safetensors models/checkpoints/
+ADD models/vae/sdxl_vae.safetensors models/vae/
+ADD models/vae/sdxl-vae-fp16-fix.safetensors models/vae/
+ADD models/loras/xl_more_art-full_v1.safetensors models/loras/
 
 # Go back to the root
 WORKDIR /
